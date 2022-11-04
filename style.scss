@@ -1,10 +1,12 @@
 $sp:600px;
+@mixin sp {
+    @media screen and (max-width:$sp) {
+        @content;
+    }
+}
 
 body{
     main{
-    @include sp{
-        zoom: .6;
-    }
         .frame{
             position: relative;
             width: 640px;
@@ -163,14 +165,13 @@ body{
                 }
             }
         }
+        @include sp{
+            zoom: .6;
+        }
     }
 }
 
-@mixin sp {
-    @media screen and (max-width:$sp) {
-        @content;
-    }
-}
+
 
 @keyframes open{
     0%{
