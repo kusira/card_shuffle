@@ -1,4 +1,7 @@
 @charset "UTF-8";
+body main {
+  zoom: 1;
+}
 @media screen and (max-width: 600px) {
   body main {
     zoom: 0.4;
