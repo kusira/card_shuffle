@@ -7,8 +7,9 @@ $sp:600px;
 
 body{
     main{
-        zoom: 1;
-        background: green;
+        @include sp{
+            zoom: .4;
+        }
         .frame{
             position: relative;
             width: 640px;
@@ -166,10 +167,6 @@ body{
                     }
                 }
             }
-        }
-        @include sp{
-            zoom: .6;
-            background: red;
         }
     }
 }

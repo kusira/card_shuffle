@@ -1,7 +1,8 @@
 @charset "UTF-8";
-body main {
-  zoom: 1.1;
-  background: green;
+@media screen and (max-width: 600px) {
+  body main {
+    zoom: 0.4;
+  }
 }
 body main .frame {
   position: relative;
@@ -162,12 +163,6 @@ body main .nav-wrapper .btns #result-text::after {
   top: 30px;
   left: 0;
   background: #000;
-}
-@media screen and (max-width: 600px) {
-  body main {
-    zoom: 0.6;
-    background: red;
-  }
 }
 
 @-webkit-keyframes open {
