@@ -1,5 +1,6 @@
 @charset "UTF-8";
 body main {
+  zoom: 1;
   background: green;
 }
 body main .frame {
