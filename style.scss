@@ -1,0 +1,220 @@
+$sp:600px;
+@mixin sp {
+    @media screen and (max-width:$sp) {
+        @content;
+    }
+}
+
+body{
+    main{
+    @include sp{
+        zoom: .6;
+    }
+        .frame{
+            position: relative;
+            width: 640px;
+            height: 300px;
+            background: rgb(225, 225, 225);
+            outline: 2px solid #000;
+            margin: 0 auto;
+            margin-top: 40px;
+            .center{
+                position: absolute;
+                top: 150px;
+                left: 320px;
+                .card{
+                    cursor: pointer;
+                    position: absolute;
+                    width: 60px;
+                    height: 80px;
+                    top: -40px;
+                    border: 1px solid #000;
+                    &.active{
+                        &::before{
+                            content: "";
+                            position: absolute;
+                            top: -6px;
+                            left: -6px;
+                            width: 72px;
+                            height: 92px;
+                            outline: 5px solid rgb(245, 255, 108);
+                        }
+                    }
+                    &::after{
+                        position: absolute;
+                        content: "";
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: pink;
+                    }
+                    &.inactive{
+                        pointer-events: none;
+                        outline: none;
+                    }
+                    &.open{
+                        animation: open .5s forwards;
+                        .white{
+                            animation: increase .5s forwards;
+                        }
+                    }
+                    &.close{
+                        animation: close .5s forwards;
+                        .white{
+                            animation: decrease .5s forwards;
+                        }
+                    }
+                    .line{
+                        position: absolute;
+                        display: block;
+                        width: 36px;
+                        height: 56px;
+                        outline: 4px solid rgb(255, 255, 255);
+                        top: 12px;
+                        left: 12px;
+                        z-index: 20;
+                    }
+                    .white{
+                        position: absolute;
+                        font-size: 40px;
+                        font-weight: 700;
+                        line-height: 80px;
+                        width: 100%;
+                        height: 100%;
+                        text-align: center;
+                        &::after{
+                            content: attr(data-name);
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            left: 0;
+                            top: 0;
+                            background-color: rgb(255, 255, 255);
+                            z-index: 0;
+                        }
+                    }
+                }
+                .No1{
+                    left: -270px;
+                }
+                .No2{
+                    left: -110px;
+                }
+                .No3{
+                    left: 50px;
+                }
+                .No4{
+                    left: 210px;
+                }
+            }
+        }
+        .nav-wrapper{
+            width: 640px;
+            margin: 0 auto;
+            margin-top: 40px;
+            .diffculty{
+                display: flex;
+                font-size: 24px;
+                p{
+                    display: inline-block;
+                }
+                #select-level{
+                    display: block;
+                    width: 40px;
+                    font-size: 24px;
+                    margin-top: -6px;
+                    margin-left: 20px;
+                }
+                #decision{
+                    margin-bottom: 6px;
+                    margin-left: 12px;
+                }
+            }
+            .btns{
+                position: absolute;
+                display: flex;
+                #start{
+                    cursor: pointer;
+                    margin-top: 10px;
+                    padding: 12px;
+                    background: rgb(251, 130, 114);
+                    width: 100px;
+                    text-align: center;
+                    border-radius: 12px;
+                    &.active{
+                        pointer-events: none;
+                        background: rgb(190, 99, 87);
+                    }
+                }
+                #result-text{
+                    position: relative;
+                    font-size: 24px;
+                    top: 18px;
+                    left: 20px;
+                    &::before{
+                        content: "結果: ";
+                        color: black;
+                    }
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        width: 140px;
+                        height: 2px;
+                        top: 30px;
+                        left: 0;
+                        background: #000;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes open{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes close{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes increase {
+    0%{
+        z-index: 0;
+    }
+    30%{
+        z-index: 0;
+    }
+    31%{
+        z-index: 50;
+    }
+    100%{
+        z-index: 50;
+    }
+}
+
+@keyframes decrease {
+    0%{
+        z-index: 50;
+    }
+    30%{
+        z-index: 50;
+    }
+    31%{
+        z-index: 0;
+    }
+    100%{
+        z-index: 0;
+    }
+}
