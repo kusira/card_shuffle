@@ -1,9 +1,4 @@
 $sp:600px;
-@mixin sp {
-    @media screen and (max-width:$sp) {
-        @content;
-    }
-}
 
 body{
     main{
@@ -168,6 +163,12 @@ body{
                 }
             }
         }
+    }
+}
+
+@mixin sp {
+    @media screen and (max-width:$sp) {
+        @content;
     }
 }
 
